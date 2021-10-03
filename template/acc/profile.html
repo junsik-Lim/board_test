@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container mt-5 mb-5">
+    <div class="text-center">
+        {% if user.pic %}
+            <img src="{{user.pic.url}}" class="rounded-circle" width="300">
+        {% else %}
+            
+        {% endif %}
+        <img src={{user.pic.url}} class="rounded-circle" width="300">
+    </div>
+    <div class="mb-3 mt-4">
+        <label for="exampleInputEmail1" class="form-label">Username</label>
+        <input type="text" value="{{user.username}}" disabled class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Comment</label>
+        <textarea class="form-control" disabled >{{user.comment}}</textarea>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Age</label>
+        <input type="number" value="{{user.age}}" disabled class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Point</label>
+        <input type="text" value="{{user.point}} P" disabled class="form-control" id="exampleInputPassword1">
+    </div>
+    <p><a class="btn btn-secondary" href="{% url 'acc:modify' %}">회원정보 수정</a></p>
+</div>
+
+{% endblock %}
